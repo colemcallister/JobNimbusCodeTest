@@ -36,8 +36,8 @@ class StringVerifierTest {
     }
 
     @Test
-    fun `haveMatchingBrackets - random characters non-brackets - returns true`() {
-        assertTrue(stringVerifier.haveMatchingBrackets("abc...xyz"))
+    fun `haveMatchingBrackets - random characters non-brackets within brackets - returns true`() {
+        assertTrue(stringVerifier.haveMatchingBrackets("{abc...xyz}"))
     }
 
     /**
@@ -59,8 +59,13 @@ class StringVerifierTest {
     }
 
     @Test
-    fun `haveMatchingBrackets - open and close with random characters - returns true`() {
+    fun `haveMatchingBrackets - open and close with random characters on both sides - returns true`() {
         assertTrue(stringVerifier.haveMatchingBrackets("a{b}c"))
+    }
+
+    @Test
+    fun `haveMatchingBrackets - only random characters non-brackets - returns true`() {
+        assertTrue(stringVerifier.haveMatchingBrackets("abc...xyz"))
     }
 
     @Test
